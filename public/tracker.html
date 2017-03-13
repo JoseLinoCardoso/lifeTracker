@@ -1,1 +1,82 @@
-<html><head>  <meta charset="utf-8">  <meta name="viewport" content="width=device-width, initial-scale=1">  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  <link rel="stylesheet" href="/stylesheets/style.css">  <title>Life As A Game - A simple life tracker</title>  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>  <script src="/javascripts/goalController.js"></script>  <script src="/javascripts/goalService.js"></script>  <script src="/javascripts/front.js"></script></head><body ng-app="laag" ng-controller="goalCtrl">  <!-- Fixed navbar -->  <nav class="navbar navbar-default navbar-fixed-top">    <div class="container">      <div class="navbar-header">        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">          <span class="sr-only">Toggle navigation</span>          <span class="icon-bar"></span>          <span class="icon-bar"></span>          <span class="icon-bar"></span>        </button>        <a class="navbar-brand" href="#">Life As A Game</a>      </div>      <div id="navbar" class="navbar-collapse navbar-right collapse">        <ul class="nav navbar-nav">          <li><a href="index.html">Home</a></li>          <li><a href="goals.html">Goals</a></li>          <li class="active"><a href="tracker.html">Track</a></li>          <li><a href="analysis.html">Analyse</a></li>        </ul>      </div><!--/.nav-collapse -->    </div>  </nav>  <div class="container">    <div class="form-horizontal tracker-form">      <div class="row tracker-heading">        <div class="col-md-6 col-md-offset-3">          <h2>Tracker</h2>        </div>      </div>      <div ng-repeat="goal in goals" class="form-group row form-row">        <div class="col-xs-1">          <label class="btn btn-default">            <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>          </label>        </div>        <div class="col-xs-9 goal">{{goal.description}}</div>        <div class="col-xs-2">          <div class="pull-right">            <label class="btn btn-success">              <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click="addOk(goal)"></span>            </label>            <label class="btn btn-danger">              <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="addKo(goal)"></span>            </label>          </div>        </div>      </div>    </div>    <hr>    <footer>      <p>&copy; 2017 SEK Catalunya</p>    </footer>  </div> <!-- /container -->  <!-- Bootstrap core JavaScript  ================================================== -->  <!-- Placed at the end of the document so the pages load faster -->  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script></body></html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Life As A Game - A simple life tracker</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="/javascripts/goalController.js"></script>
+  <script src="/javascripts/goalService.js"></script>
+  <script src="/javascripts/front.js"></script>
+</head>
+<body ng-app="laag" ng-controller="goalCtrl">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Life As A Game</a>
+      </div>
+      <div id="navbar" class="navbar-collapse navbar-right collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li class="active"><a href="tracker.html">Track</a></li>
+          <li><a href="analysis.html">Analyse</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="container">
+    <div class="form-horizontal tracker-form">
+      <div class="row tracker-heading">
+        <div class="col-md-6 col-md-offset-3">
+          <div class align="center">
+          <b><h2>Tracker</h2></b>
+        </div>
+      </div>
+      <br>
+    </div>
+      <div align="center">
+      <input type="date" ng-model="day" class="form-control" placeholder="Data" style="width: 200px;" ng-change="loadDay(day,goals)"/>
+    </div>
+  </br>
+      <div ng-repeat="goal in goals" class="form-group row form-row">
+        <div class="col-xs-1">
+          <label class="btn btn-default">
+            <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+          </label>
+        </div>
+        <div class="col-xs-8 goal">{{goal.description}}</div>
+        <div class="col-xs-3"> <button type="button" class="btn btn-default">{{goal.result}}</button>
+          <div class="pull-right">
+            <label class="btn btn-success">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click="addOk(goal)"></span>
+            </label>
+            <label class="btn btn-danger">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="addKo(goal)"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <hr>
+    <footer>
+      <p>&copy; 2017 SEK Catalunya</p>
+    </footer>
+  </div> <!-- /container -->
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
