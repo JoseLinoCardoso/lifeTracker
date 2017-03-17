@@ -50,10 +50,10 @@
       <div ng-repeat="goal in goals" class="form-group row form-row">
         <div class="col-xs-1">
           <label class="btn btn-default">
-            <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-sort" aria-hidden="true" ng-model="addOk" div ng-class="{addOk:true}"></span>
           </label>
         </div>
-        <div class="col-xs-8 goal">{{goal.description}}</div>
+        <div class="col-xs-8 goal" ng-class="{'has-error': goal.result==-1, 'has-true': goal.result==1}">{{goal.description}}</div>
         <div class="col-xs-3"> <button type="button" class="btn btn-default">{{goal.result}}</button>
           <div class="pull-right">
             <label class="btn btn-success">
